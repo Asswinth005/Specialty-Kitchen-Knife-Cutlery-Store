@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steel & Ember · Shop All Knives · Products</title>
+  <!-- Custom Favicon (knife) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M25 45 L70 30 L75 38 L30 53 Z' fill='%23D9D9D9'/%3E%3Cpath d='M25 45 L30 53 L22 58 Z' fill='%23B0B0B0'/%3E%3Ccircle cx='72' cy='34' r='3' fill='%23FF8E6C'/%3E%3C/svg%3E" />
+  <!-- Tailwind CSS via CDN -->
+  <script src="tailwind.js"></script>
+  <!-- Custom Tailwind Configuration — same as reference -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontWeight: {
+            bold: '700',
+            extrabold: '800',
+            semibold: '600',
+          },
+          colors: {
+            brand: {
+              primary: '#111111',
+              secondary: '#2E2E2E',
+              muted: '#4A4A4A',
+              border: '#E8E2DA',
+              accent: '#B8734A',
+              'accent-dark': '#9E5F3C',
+              'accent-light': '#F3E6DE',
+              bg: '#FFFFFF',
+              'bg-soft': '#FAF7F4',
+            },
+            custom: {
+              steel: '#D9D9D9',
+              'steel-light': '#F0F0F0',
+              ember: '#B8734A',
+            }
+          },
+          fontFamily: {
+            display: ['"Poppins"', 'system-ui', 'sans-serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+            'fade-in': 'fadeIn 0.5s ease-out',
+            'shimmer': 'shimmer 2.5s infinite linear',
+          },
+          keyframes: {
+            floatSlow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+            slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            bounceGentle: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            shimmer: { '0%': { backgroundPosition: '-500px 0' }, '100%': { backgroundPosition: '500px 0' } },
+          },
+          backgroundImage: {
+            'steel-pattern': 'radial-gradient(circle at 20% 30%, rgba(217,217,217,0.15) 0%, transparent 60%)',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* === same base overrides as reference === */
+    h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+    p { font-weight: 400; }
+    p strong, p b, p .font-bold { font-weight: 700; }
+    p .font-semibold { font-weight: 600; }
+    .font-extrabold { font-weight: 800; }
+    .bg-brand-accent { background-color: #B8734A; }
+    .text-brand-accent { color: #B8734A; }
+    .border-brand-accent { border-color: #B8734A; }
+    .bg-brand-accent-light { background-color: #F3E6DE; }
+    .text-brand-accent-light { color: #F3E6DE; }
+    .border-brand-accent-light { border-color: #F3E6DE; }
+    .hover\:bg-brand-accent-dark:hover { background-color: #9E5F3C; }
+    .bg-brand-bg-soft { background-color: #FAF7F4; }
+    .text-brand-bg-soft { color: #FAF7F4; }
+    .border-brand-bg-soft { border-color: #FAF7F4; }
+    .border-brand-border { border-color: #E8E2DA; }
+    body {
+      background-color: #FFFFFF;
+      color: #111111;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .dark body {
+      background-color: #1A1A1A;
+      color: #F5F5F5;
+    }
+    .dark .text-brand-primary { color: #F5F5F5; }
+    .dark .text-brand-secondary { color: #E0E0E0; }
+    .dark .text-brand-muted { color: #AAAAAA; }
+    .dark .bg-brand-bg-soft { background-color: #2A2A2A; }
+    .dark .border-brand-border { border-color: #3A3A3A; }
+    body::-webkit-scrollbar { width: 6px; }
+    body::-webkit-scrollbar-track { background: #FAF7F4; border-radius: 10px; }
+    body::-webkit-scrollbar-thumb { background: #B8734A; border-radius: 10px; }
+
+    /* card style (reference) */
+    .card-school {
+      background: #FFFFFF;
+      border-radius: 32px;
+      transition: all 0.3s ease;
+      border: 1px solid #E8E2DA;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+    .dark .card-school {
+      background: #2A2A2A;
+      border-color: #3A3A3A;
+    }
+    .card-school:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -10px rgba(184,115,74,0.2);
+      border-color: #B8734A;
+    }
+    .btn-primary-school {
+      background-color: #B8734A;
+      color: #FFFFFF;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 14px rgba(184,115,74,0.35);
+      border: 1.5px solid #B8734A;
+    }
+    .btn-primary-school:hover {
+      background-color: #9E5F3C;
+      border-color: #9E5F3C;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(184,115,74,0.45);
+      color: #FFFFFF;
+    }
+    .dark .btn-primary-school {
+      background-color: #B8734A;
+      color: #FFFFFF;
+      border-color: #B8734A;
+    }
+    .dark .btn-primary-school:hover {
+      background-color: #9E5F3C;
+      border-color: #9E5F3C;
+      color: #FFFFFF;
+    }
+    .btn-outline-school {
+      border: 1.5px solid #111111;
+      color: #111111;
+      background: transparent;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .btn-outline-school:hover {
+      background-color: #111111;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .dark .btn-outline-school {
+      border-color: #F5F5F5;
+      color: #F5F5F5;
+    }
+    .dark .btn-outline-school:hover {
+      background-color: #F5F5F5;
+      color: #111111;
+    }
+    .nav-link {
+      position: relative;
+      font-weight: 500;
+      color: #111111;
+    }
+    .dark .nav-link { color: #F5F5F5; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2.5px;
+      background-color: #B8734A;
+      transition: width 0.25s ease;
+      border-radius: 3px;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active::after { width: 100%; }
+    .nav-link.active { color: #B8734A !important; }
+    .dropdown-school { position: relative; }
+    .dropdown-school-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: #FFFFFF;
+      border-radius: 18px;
+      padding: 0.5rem 0;
+      box-shadow: 0 18px 32px rgba(0,0,0,0.06);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.25s ease;
+      z-index: 1000;
+      border: 1px solid #E8E2DA;
+    }
+    .dark .dropdown-school-menu { background: #2A2A2A; border-color: #3A3A3A; }
+    .dropdown-school:hover .dropdown-school-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      padding: 0.6rem 1.4rem;
+      transition: all 0.2s;
+      color: #111111;
+    }
+    .dark .dropdown-item { color: #F5F5F5; }
+    .dropdown-item:hover {
+      background-color: #FAF7F4;
+      color: #111111;
+      padding-left: 1.7rem;
+    }
+    .dropdown-item i { margin-right: 0.75rem; width: 20px; }
+    .mobile-menu-school {
+      background: #FFFFFF;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 0 0 24px 24px;
+    }
+    .dark .mobile-menu-school { background: #2A2A2A; }
+    .mobile-menu-school.open { max-height: 80vh; overflow-y: auto; scrollbar-width: none; }
+    .mobile-menu-school.open::-webkit-scrollbar { display: none; }
+    .stat-badge-school {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 1rem 0.5rem;
+      border: 1px solid #E8E2DA;
+      text-align: center;
+    }
+    .dark .stat-badge-school { background: #2A2A2A; }
+    .testimonial-card-school {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 1.8rem;
+      border-left: 5px solid #B8734A;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+    }
+    .dark .testimonial-card-school { background: #2A2A2A; }
+    .social-icon-school {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FAF7F4;
+      color: #111111;
+      transition: all 0.3s;
+    }
+    .social-icon-school:hover {
+      background-color: #B8734A;
+      color: #FFFFFF;
+      transform: translateY(-3px);
+    }
+    .dark .social-icon-school { background-color: #2A2A2A; color: #F5F5F5; }
+    .dark .social-icon-school:hover { background-color: #B8734A; color: #FFFFFF; }
+    .avatar-circle-school {
+      background-color: #B8734A;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #FFFFFF;
+    }
+    .flavor-tag-school {
+      background: #F3E6DE;
+      border-radius: 100px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #111111;
+    }
+    .dark .flavor-tag-school { background: #3A2A24; color: #F5F5F5; }
+    .parent-portal-btn {
+      background: #111111;
+      color: #FFFFFF;
+      border-radius: 60px;
+      padding: 0.6rem 1.6rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: 1px solid #111111;
+    }
+    .parent-portal-btn:hover {
+      background: #2A2A2A;
+      border-color: #2A2A2A;
+      box-shadow: 0 6px 16px rgba(184,115,74,0.3);
+    }
+    [dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+    [dir="rtl"] .border-l-4 { border-left-width: 0 !important; border-right-width: 4px !important; }
+    [dir="rtl"] .ms-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+    html[dir="rtl"] .dropdown-school-menu { left: auto; right: 0; }
+    [dir="rtl"] .dropdown-item i { margin-right: 0; margin-left: 0.75rem; }
+    [dir="rtl"] .dropdown-item:hover { padding-left: 1.4rem; padding-right: 1.7rem; }
+    [dir="rtl"] .testimonial-card-school { border-left: none; border-right: 5px solid #B8734A; }
+
+    /* ===== PRODUCTS PAGE UNIQUE STYLES ===== */
+    .products-hero {
+      background: linear-gradient(120deg, #111111 0%, #1F1F1F 55%, #2A1F1A 100%);
+    }
+    .dark .products-hero {
+      background: linear-gradient(120deg, #0A0A0A 0%, #141414 55%, #1F1613 100%);
+    }
+    .product-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      border: 1px solid #E8E2DA;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .dark .product-card {
+      background: #232323;
+      border-color: #333333;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 45px -18px rgba(184,115,74,0.4);
+      border-color: #B8734A;
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.08) rotate(-1deg);
+    }
+    .product-card:hover .product-quick-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .product-card.card-hidden {
+      display: none !important;
+    }
+    .product-card.card-fade-in {
+      animation: fadeInCard 0.35s ease forwards;
+    }
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .product-grid-list .product-card {
+      flex-direction: row;
+      align-items: center;
+    }
+    .product-grid-list .product-card .product-img-wrap {
+      width: 280px;
+      height: 220px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .product-grid-list .product-card {
+        flex-direction: column;
+      }
+      .product-grid-list .product-card .product-img-wrap {
+        width: 100%;
+        height: 240px;
+      }
+    }
+    .product-img-wrap {
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #F3E6DE 0%, #EFE7E0 100%);
+    }
+    .dark .product-img-wrap {
+      background: linear-gradient(135deg, #2E2420 0%, #241E1B 100%);
+    }
+    .product-img {
+      transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .product-quick-actions {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all 0.35s ease;
+    }
+    .quick-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      color: #111111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      transition: all 0.25s;
+      font-size: 0.85rem;
+    }
+    .quick-btn:hover {
+      background: #B8734A;
+      color: #FFFFFF;
+      transform: scale(1.12);
+    }
+    .dark .quick-btn {
+      background: #2A2A2A;
+      color: #F5F5F5;
+    }
+    .filter-btn {
+      background: #FFFFFF;
+      border: 1.5px solid #E8E2DA;
+      color: #111111;
+      padding: 0.55rem 1.3rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.25s;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .dark .filter-btn {
+      background: #2A2A2A;
+      border-color: #3A3A3A;
+      color: #F5F5F5;
+    }
+    .filter-btn:hover {
+      border-color: #B8734A;
+      color: #B8734A;
+    }
+    .filter-btn.active {
+      background: #B8734A;
+      border-color: #B8734A;
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(184,115,74,0.35);
+    }
+    .sort-select {
+      background: #FFFFFF;
+      border: 1.5px solid #E8E2DA;
+      color: #111111;
+      padding: 0.55rem 2.2rem 0.55rem 1rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      appearance: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%23B8734A' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+    }
+    .dark .sort-select {
+      background-color: #2A2A2A;
+      border-color: #3A3A3A;
+      color: #F5F5F5;
+    }
+    .sort-select:focus {
+      outline: none;
+      border-color: #B8734A;
+      box-shadow: 0 0 0 4px rgba(184,115,74,0.15);
+    }
+    .price-badge {
+      font-weight: 800;
+      color: #B8734A;
+      font-size: 1.15rem;
+    }
+    .old-price {
+      font-size: 0.8rem;
+      text-decoration: line-through;
+      color: #999;
+      font-weight: 500;
+    }
+    .rating-star {
+      color: #B8734A;
+      font-size: 0.7rem;
+    }
+    .products-skeleton {
+      background: linear-gradient(90deg, #F0F0F0 25%, #E0E0E0 50%, #F0F0F0 75%);
+      background-size: 500px 100%;
+      animation: shimmer 2s infinite linear;
+    }
+    .dark .products-skeleton {
+      background: linear-gradient(90deg, #2A2A2A 25%, #333333 50%, #2A2A2A 75%);
+      background-size: 500px 100%;
+    }
+    .pagination-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      border: 1.5px solid #E8E2DA;
+      background: #FFFFFF;
+      color: #111111;
+      cursor: pointer;
+    }
+    .dark .pagination-btn {
+      background: #2A2A2A;
+      border-color: #3A3A3A;
+      color: #F5F5F5;
+    }
+    .pagination-btn:hover {
+      border-color: #B8734A;
+      color: #B8734A;
+    }
+    .pagination-btn.active {
+      background: #B8734A;
+      border-color: #B8734A;
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(184,115,74,0.35);
+    }
+    .products-banner-strip {
+      background: repeating-linear-gradient(
+        -45deg,
+        #B8734A,
+        #B8734A 12px,
+        #A86540 12px,
+        #A86540 24px
+      );
+    }
+  </style>
+</head>
+<body class="warm-pattern bg-white dark:bg-[#1A1A1A]">
+
+  <!-- ======== NAVIGATION — copied from reference ======== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#1A1A1A] border-b border-[#E8E2DA] dark:border-[#3A3A3A] shadow-sm">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0">
+        <a class="flex items-center gap-2 md:gap-3 group shrink-0" href='index.html'>
+          <div class="w-9 h-9 md:w-10 md:h-10 bg-[#B8734A] rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300">
+            <i class="fas fa-cut text-white text-base md:text-lg"></i>
+          </div>
+          <div>
+            <span class="text-lg md:text-2xl font-display font-extrabold tracking-tight text-[#111111] dark:text-white">STEEL<span class="text-[#B8734A]">&amp;EMBER</span></span>
+          </div>
+        </a>
+        <div class="hidden xl:flex items-center justify-center gap-6 xl:gap-8 mx-auto">
+          <div class="dropdown-school">
+            <button class="nav-link font-medium transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+              Home <i class="fas fa-chevron-down text-xs ms-1"></i>
+            </button>
+            <div class="dropdown-school-menu">
+              <a class="dropdown-item font-medium" href="index.html"> Home 1</a>
+              <a class="dropdown-item" href="home2.html"> Home 2</a>
+            </div>
+          </div>
+          <a class="nav-link hover:text-[#B8734A] transition whitespace-nowrap text-sm xl:text-base" href="about.html">About</a>
+          <a class="nav-link active hover:text-[#B8734A] transition whitespace-nowrap text-sm xl:text-base" href="products.html">Products</a>
+          <a class="nav-link hover:text-[#B8734A] transition whitespace-nowrap text-sm xl:text-base" href="collections.html">Collections</a>
+          <a class="nav-link hover:text-[#B8734A] transition whitespace-nowrap text-sm xl:text-base" href="sharpening.html">Sharpening</a>
+          <a class="nav-link hover:text-[#B8734A] transition whitespace-nowrap text-sm xl:text-base" href="contact.html">Contact</a>
+        </div>
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="hidden xl:flex items-center gap-3">
+            <button id="theme-toggle" class="w-10 h-10 rounded-full bg-[#F3E6DE] dark:bg-[#3A2A24] text-[#111111] dark:text-[#B8734A] hover:scale-110 transition flex items-center justify-center">
+              <i class="fas fa-moon dark:hidden"></i>
+              <i class="fas fa-sun hidden dark:inline"></i>
+            </button>
+            <button id="rtl-toggle" class="w-10 h-10 rounded-full bg-[#F3E6DE] dark:bg-[#3A2A24] text-[#111111] dark:text-[#B8734A] hover:scale-110 transition flex items-center justify-center font-bold text-base">
+              <i class="fas fa-exchange-alt"></i>
+            </button>
+            <a href="contact.html" class="px-6 py-2.5 bg-[#B8734A] text-white font-semibold text-sm rounded-full hover:bg-[#9E5F3C] transition shadow-sm flex items-center gap-2">
+              <i class="fas fa-paper-plane text-xs"></i> Enquire
+            </a>
+          </div>
+          <button id="mobile-toggle" class="xl:hidden w-10 h-10 rounded-full bg-[#B8734A] text-white flex items-center justify-center shadow-md">
+            <i class="fas fa-bars text-base"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu (same as reference) -->
+      <div id="mobile-menu" class="mobile-menu-school xl:hidden">
+        <div class="py-4 px-3 space-y-1">
+          <div class="py-1">
+            <button onclick="document.getElementById('home-mobile-drop').classList.toggle('hidden'); document.getElementById('home-mobile-icon').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-3 px-4 font-medium text-[#111111] hover:bg-[#FAF7F4] rounded-xl transition cursor-pointer dark:text-white dark:hover:bg-[#2A2A2A]">
+              <span>Home</span>
+              <i id="home-mobile-icon" class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+            </button>
+            <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+              <a class="block py-2.5 px-4 font-medium text-[#111111] hover:bg-[#FAF7F4] rounded-xl transition dark:text-white dark:hover:bg-[#2A2A2A]" href="index.html"><i class="fas fa-home w-6 text-[#B8734A]"></i> Home 1</a>
+              <a class="block py-2.5 px-4 font-medium text-[#111111] hover:bg-[#FAF7F4] rounded-xl transition dark:text-white dark:hover:bg-[#2A2A2A]" href="home2.html"><i class="fas fa-home w-6 text-[#B8734A]"></i> Home 2</a>
+            </div>
+          </div>
+          <a class="block py-3 px-4 font-medium text-[#111111] hover:bg-[#FAF7F4] rounded-xl transition dark:text-white dark:hover:bg-[#2A2A2A]" href="about.html">About</a>
+          <a class="block py-3 px-4 font-medium text-[#111111] bg-[#F3E6DE] border-l-4 border-[#B8734A] rounded-xl transition dark:text-white dark:bg-[#3A2A24]" href="products.html">Products</a>
+          <a class="block py-3 px-4 font-medium text-[#111111] hover:bg-[#FAF7F4] rounded-xl transition dark:text-white dark:hover:bg-[#2A2A2A]" href="collections.html">Collections</a>
+          <a class="block py-3 px-4 font-medium text-[#111111] hover:bg-[#FAF7F4] rounded-xl transition dark:text-white dark:hover:bg-[#2A2A2A]" href="sharpening.html">Sharpening</a>
+          <a class="block py-3 px-4 font-medium text-[#111111] hover:bg-[#FAF7F4] rounded-xl transition dark:text-white dark:hover:bg-[#2A2A2A]" href="contact.html">Contact</a>
+          <div class="flex flex-col gap-3 pt-5 mt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+            <div class="flex gap-3">
+              <button id="mobile-theme-toggle" class="flex-1 py-2 rounded-full bg-[#F3E6DE] dark:bg-[#3A2A24] text-[#111111] dark:text-[#B8734A] text-sm font-medium flex items-center gap-2 justify-center">
+                <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i> Theme
+              </button>
+              <button id="mobile-rtl-toggle" class="flex-1 py-2 rounded-full bg-[#F3E6DE] dark:bg-[#3A2A24] text-[#111111] dark:text-[#B8734A] text-sm font-medium flex items-center gap-2 justify-center">
+                <i class="fas fa-exchange-alt"></i> RTL
+              </button>
+            </div>
+            <a class="text-center py-2.5 rounded-full font-semibold bg-[#B8734A] text-white hover:bg-[#9E5F3C] transition shadow-sm flex items-center justify-center gap-2" href="contact.html">
+              <i class="fas fa-paper-plane text-xs"></i> Enquire
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======== PRODUCTS HERO — unique compact banner ======== -->
+  <section class="pt-32 pb-12 md:pt-40 md:pb-16 products-hero relative overflow-hidden">
+    <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 50% 30%, rgba(184,115,74,0.4) 0%, transparent 60%);"></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <nav class="flex items-center justify-center gap-2 text-xs font-semibold tracking-wide text-white/60 mb-5">
+          <a href="index.html" class="hover:text-[#B8734A] transition">Home</a>
+          <i class="fas fa-chevron-right text-[8px]"></i>
+          <span class="text-[#B8734A]">Products</span>
+        </nav>
+        <h1 class="text-4xl md:text-6xl font-display font-extrabold text-white leading-tight mb-5">
+          The Complete <span class="text-[#B8734A]">Blade</span> Collection
+        </h1>
+        <p class="text-lg text-white/80 max-w-xl mx-auto leading-relaxed">
+          Every knife we forge, in one place. Filter by type, steel, or price — and find the blade that feels like it was made for your hand.
+        </p>
+      </div>
+      <!-- small strip stats -->
+      <div class="flex flex-wrap justify-center gap-8 md:gap-14 mt-10 pt-8 border-t border-white/15">
+        <div class="flex items-center gap-3 text-left">
+          <i class="fas fa-cut text-[#B8734A] text-xl"></i>
+          <div><div class="text-white font-extrabold text-lg leading-none">48+</div><div class="text-[10px] uppercase tracking-widest text-white/60 font-semibold mt-1">Blade profiles</div></div>
+        </div>
+        <div class="flex items-center gap-3 text-left">
+          <i class="fas fa-fire text-[#B8734A] text-xl"></i>
+          <div><div class="text-white font-extrabold text-lg leading-none">62 HRC</div><div class="text-[10px] uppercase tracking-widest text-white/60 font-semibold mt-1">Max hardness</div></div>
+        </div>
+        <div class="flex items-center gap-3 text-left">
+          <i class="fas fa-truck-fast text-[#B8734A] text-xl"></i>
+          <div><div class="text-white font-extrabold text-lg leading-none">Free</div><div class="text-[10px] uppercase tracking-widest text-white/60 font-semibold mt-1">Shipping over $150</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FILTER & SORT BAR ======== -->
+  <section class="bg-white dark:bg-[#1A1A1A] border-b border-[#E8E2DA] dark:border-[#3A3A3A] py-5 shadow-sm">
+    <div class="container mx-auto px-6">
+      
+      <!-- Section Heading -->
+      <div class="mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#E8E2DA]/60 dark:border-[#3A3A3A]/60 pb-3">
+        <div>
+          <span class="inline-block bg-[#F3E6DE] dark:bg-[#3A2A24] text-[#B8734A] px-3.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-1.5">
+            <i class="fas fa-sliders-h mr-1.5"></i> Category Filter
+          </span>
+          <h2 class="text-2xl md:text-3xl font-display font-extrabold text-[#111111] dark:text-white leading-tight">
+            Explore <span class="text-[#B8734A]">Knife Categories</span>
+          </h2>
+        </div>
+        <!-- Result count -->
+        <div class="text-xs font-semibold text-[#4A4A4A] dark:text-[#AAAAAA] shrink-0">
+          Showing <span id="showing-count" class="text-[#B8734A] font-extrabold text-sm">12</span> of <span id="total-count">12</span> knives
+        </div>
+      </div>
+
+      <!-- Controls row (Filter buttons + Sort dropdown) -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-1">
+        <!-- Filter chips scrollable container with padding to prevent shadow clipping -->
+        <div class="w-full lg:w-auto overflow-x-auto no-scrollbar py-2.5 px-1 -mx-1">
+          <div class="flex items-center gap-2.5 min-w-max">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-layer-group text-xs"></i> All Knives</button>
+            <button class="filter-btn" data-filter="chef"><i class="fas fa-utensils text-xs"></i> Chef's</button>
+            <button class="filter-btn" data-filter="santoku"><i class="fas fa-leaf text-xs"></i> Santoku</button>
+            <button class="filter-btn" data-filter="paring"><i class="fas fa-seedling text-xs"></i> Paring</button>
+            <button class="filter-btn" data-filter="bread"><i class="fas fa-bread-slice text-xs"></i> Bread</button>
+            <button class="filter-btn" data-filter="utility"><i class="fas fa-screwdriver text-xs"></i> Utility</button>
+            <button class="filter-btn" data-filter="specialty"><i class="fas fa-gem text-xs"></i> Specialty</button>
+          </div>
+        </div>
+        <!-- Sort + view options -->
+        <div class="flex items-center justify-between lg:justify-end gap-3 shrink-0 pt-2 lg:pt-0 border-t lg:border-t-0 border-[#E8E2DA] dark:border-[#3A3A3A]">
+          <div class="flex items-center gap-2 text-xs font-semibold text-[#4A4A4A] dark:text-[#AAAAAA]">
+            <i class="fas fa-sort-amount-down text-[#B8734A]"></i> Sort:
+          </div>
+          <select id="sort-select" class="sort-select">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+            <option value="newest">Newest Arrivals</option>
+          </select>
+          <div class="hidden md:flex items-center gap-1 border border-[#E8E2DA] dark:border-[#3A3A3A] rounded-full p-1 bg-[#FAF7F4] dark:bg-[#232323]">
+            <button id="view-grid-btn" class="w-8 h-8 rounded-full bg-[#B8734A] text-white flex items-center justify-center text-xs transition" title="Grid View"><i class="fas fa-th-large"></i></button>
+            <button id="view-list-btn" class="w-8 h-8 rounded-full text-[#4A4A4A] dark:text-[#AAAAAA] flex items-center justify-center text-xs hover:text-[#B8734A] transition" title="List View"><i class="fas fa-list"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======== PRODUCT GRID ======== -->
+  <section class="py-14 bg-white dark:bg-[#1A1A1A]">
+    <div class="container mx-auto px-6">
+      <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all duration-300">
+
+        <!-- Product 1 — Chef's Knife -->
+        <div class="product-card" data-category="chef" data-price="289" data-rating="5.0" data-reviews="128" data-order="1">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p1.jpg" alt="Gyuto Chef's Knife" class="product-img object-cover object-center w-full h-full">
+            <span class="absolute top-3 left-3 bg-[#B8734A] text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">Best Seller</span>
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(128)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Gyuto Chef's Knife</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">210mm · VG-10 Damascus · Ebony handle</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$289</span>
+                <span class="old-price ml-1.5">$349</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 — Santoku -->
+        <div class="product-card" data-category="santoku" data-price="359" data-rating="5.0" data-reviews="94" data-order="2">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p2.jpg" alt="Santoku Knife" class="product-img object-cover object-center w-full h-full">
+            <span class="absolute top-3 left-3 bg-[#111111] text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">New</span>
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(94)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Sakura Santoku</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">180mm · Blue Steel #2 · Walnut handle</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$359</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 — Paring -->
+        <div class="product-card" data-category="paring" data-price="149" data-rating="4.0" data-reviews="67" data-order="3">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p3.jpg" alt="Paring Knife" class="product-img object-cover object-center w-full h-full">
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="far fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(67)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Precision Paring Knife</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">90mm · SG2 Powder Steel · Pakkawood</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$149</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 — Bread Knife -->
+        <div class="product-card" data-category="bread" data-price="219" data-rating="5.0" data-reviews="112" data-order="4">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p4.jpg" alt="Bread Knife" class="product-img object-cover object-center w-full h-full">
+            <span class="absolute top-3 left-3 bg-[#F3E6DE] text-[#111111] text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">Handmade</span>
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(112)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Artisan Bread Knife</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">240mm · Serrated VG-10 · Oak handle</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$219</span>
+                <span class="old-price ml-1.5">$259</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 — Utility -->
+        <div class="product-card" data-category="utility paring" data-price="179" data-rating="4.0" data-reviews="53" data-order="5">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p5.jpg" alt="Utility Knife" class="product-img object-cover object-center w-full h-full">
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="far fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(53)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Petty Utility Knife</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">150mm · Swedish Stainless · Birch handle</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$179</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 — Nakiri (Specialty) -->
+        <div class="product-card" data-category="specialty" data-price="329" data-rating="5.0" data-reviews="41" data-order="6">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p6.jpg" alt="Nakiri Knife" class="product-img object-cover object-center w-full h-full">
+            <span class="absolute top-3 left-3 bg-[#B8734A] text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">Limited</span>
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(41)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Nakiri Vegetable Knife</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">165mm · Aogami Super · Magnolia handle</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$329</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 — Cleaver -->
+        <div class="product-card" data-category="specialty chef" data-price="199" data-rating="4.0" data-reviews="38" data-order="7">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p7.jpg" alt="Cleaver" class="product-img object-cover object-center w-full h-full">
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="far fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(38)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Heavy Cleaver</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">190mm · German X50CrMoV15 · Rosewood</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$199</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 — Bunka (Specialty) -->
+        <div class="product-card" data-category="specialty santoku" data-price="379" data-rating="5.0" data-reviews="76" data-order="8">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p8.jpg" alt="Bunka Knife" class="product-img object-cover object-center w-full h-full">
+            <span class="absolute top-3 left-3 bg-[#111111] text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">Exclusive</span>
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(76)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Bunka K-Tip Knife</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">180mm · SG2 Damascus · Rosewood handle</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$379</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 9 — Fillet -->
+        <div class="product-card" data-category="specialty utility" data-price="159" data-rating="4.0" data-reviews="29" data-order="9">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p13.jpg" alt="Fillet Knife" class="product-img object-cover object-center w-full h-full">
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="far fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(29)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Flexible Fillet Knife</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">180mm · Swedish Stainless · Rubber grip</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$159</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 10 — Kiritsuke (Specialty) -->
+        <div class="product-card" data-category="specialty chef" data-price="419" data-rating="5.0" data-reviews="88" data-order="10">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p10.jpg" alt="Kiritsuke Knife" class="product-img object-cover object-center w-full h-full">
+            <span class="absolute top-3 left-3 bg-[#B8734A] text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">Best Seller</span>
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(88)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Kiritsuke Knife</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">210mm · Aogami Blue #2 · Hon-wood handle</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$419</span>
+                <span class="old-price ml-1.5">$479</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 11 — Tomato Knife -->
+        <div class="product-card" data-category="bread utility paring" data-price="129" data-rating="5.0" data-reviews="63" data-order="11">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p11.jpg" alt="Tomato Knife" class="product-img object-cover object-center w-full h-full">
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(63)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Tomato / Serrated Utility</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">130mm · Serrated VG-10 · Black Pakka</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$129</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 12 — Deba (Specialty) -->
+        <div class="product-card" data-category="specialty" data-price="349" data-rating="5.0" data-reviews="35" data-order="12">
+          <div class="product-img-wrap h-60">
+            <img src="assets/p12.jpg" alt="Deba Knife" class="product-img object-cover object-center w-full h-full">
+            <span class="absolute top-3 left-3 bg-[#F3E6DE] text-[#111111] text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">Pro Grade</span>
+            <div class="product-quick-actions">
+              <button class="quick-btn" title="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-btn" title="Quick view"><i class="far fa-eye"></i></button>
+              <button class="quick-btn" title="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center gap-1 mb-2">
+              <i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i><i class="fas fa-star rating-star"></i>
+              <span class="text-[10px] text-[#4A4A4A] dark:text-[#AAAAAA] font-semibold ml-1">(35)</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] dark:text-white leading-snug">Deba Fish Knife</h3>
+            <p class="text-xs text-[#4A4A4A] dark:text-[#AAAAAA] mt-1 mb-4">165mm · White Steel #2 · Magnolia handle</p>
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-[#E8E2DA] dark:border-[#3A3A3A]">
+              <div>
+                <span class="price-badge">$349</span>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-[#111111] dark:bg-white text-white dark:text-[#111111] flex items-center justify-center hover:bg-[#B8734A] dark:hover:bg-[#B8734A] hover:text-white transition shadow-sm">
+                <i class="fas fa-plus text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty state message if no products match -->
+        <div id="no-products-msg" class="hidden col-span-full py-16 text-center">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#F3E6DE] dark:bg-[#3A2A24] flex items-center justify-center text-[#B8734A] text-2xl shadow-sm">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#111111] dark:text-white mb-2">No knives found in this category</h3>
+          <p class="text-sm text-[#4A4A4A] dark:text-[#AAAAAA] mb-6 max-w-md mx-auto">Try selecting another category or view all available forged knives in our catalog.</p>
+          <button id="reset-filter-btn" class="btn-primary-school px-6 py-2.5 text-xs font-semibold rounded-full inline-flex items-center gap-2">
+            <i class="fas fa-layer-group"></i> View All Knives
+          </button>
+        </div>
+
+      </div>
+
+      <!-- ======== PAGINATION ======== -->
+      <div id="pagination-container" class="flex justify-center items-center gap-2 mt-14">
+        <button class="pagination-btn"><i class="fas fa-chevron-left text-xs"></i></button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <button class="pagination-btn">4</button>
+        <span class="text-[#4A4A4A] dark:text-[#AAAAAA] text-sm font-bold px-1">...</span>
+        <button class="pagination-btn">12</button>
+        <button class="pagination-btn"><i class="fas fa-chevron-right text-xs"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PROMO BANNER — unique color strip ======== -->
+  <section class="products-banner-strip py-3 overflow-hidden">
+    <div class="flex items-center justify-center gap-8 whitespace-nowrap text-white font-bold text-sm uppercase tracking-wider">
+      <span><i class="fas fa-truck-fast mr-2"></i> Free shipping over $150</span>
+      <span class="hidden sm:inline">•</span>
+      <span class="hidden sm:inline"><i class="fas fa-gem mr-2"></i> Lifetime sharpening included</span>
+      <span class="hidden md:inline">•</span>
+      <span class="hidden md:inline"><i class="fas fa-undo-alt mr-2"></i> 30-day returns</span>
+      <span class="hidden lg:inline">•</span>
+      <span class="hidden lg:inline"><i class="fas fa-shield-alt mr-2"></i> 10-year warranty</span>
+    </div>
+  </section>
+
+  <!-- ======== CTA — unique split banner ======== -->
+  <section class="py-20 bg-[#FAF7F4] dark:bg-[#1F1F1F]">
+    <div class="container mx-auto px-6">
+      <div class="max-w-5xl mx-auto bg-white dark:bg-[#2A2A2A] rounded-[40px] border border-[#E8E2DA] dark:border-[#3A3A3A] shadow-xl overflow-hidden grid md:grid-cols-2">
+        <div class="p-10 md:p-14 flex flex-col justify-center">
+          <span class="inline-block bg-[#F3E6DE] dark:bg-[#3A2A24] text-[#111111] dark:text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase w-max mb-4">
+            <i class="fas fa-question-circle text-[#B8734A] mr-1"></i> Not sure what to buy?
+          </span>
+          <h2 class="text-3xl md:text-4xl font-display font-extrabold text-[#111111] dark:text-white leading-tight mb-4">
+            Let us help you find your <span class="text-[#B8734A]">perfect knife</span>
+          </h2>
+          <p class="text-[#4A4A4A] dark:text-[#AAAAAA] mb-8 leading-relaxed">
+            Book a free 15-minute video consultation with our knife experts. We'll recommend the right blade for your cooking style, grip, and budget.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="contact.html" class="btn-primary-school px-7 py-3 rounded-full inline-flex items-center gap-2 text-sm">
+              <i class="fas fa-calendar-check"></i> Book a Consultation
+            </a>
+            <a href="sharpening.html" class="btn-outline-school px-7 py-3 rounded-full inline-flex items-center gap-2 text-sm">
+              <i class="fas fa-gem"></i> Sharpening Services
+            </a>
+          </div>
+        </div>
+        <div class="relative bg-gradient-to-br from-[#B8734A] to-[#9E5F3C] min-h-[280px] flex items-center justify-center p-10">
+          <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 30% 30%, white 0%, transparent 40%), radial-gradient(circle at 70% 70%, white 0%, transparent 40%);"></div>
+          <div class="relative text-center text-white">
+            <i class="fas fa-comments text-7xl mb-5 opacity-90"></i>
+            <div class="text-2xl font-extrabold mb-1">Free & Personal</div>
+            <div class="text-white/80 text-sm">No pressure. Just expert advice.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER — copied from reference ======== -->
+  <footer class="bg-white dark:bg-[#111111] text-[#111111] dark:text-white pt-16 pb-8 border-t-4 border-[#B8734A] transition-colors duration-300">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div class="text-center md:text-start">
+          <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+            <div class="w-9 h-9 md:w-10 md:h-10 bg-[#B8734A] rounded-xl flex items-center justify-center shadow-lg"><i class="fas fa-cut text-white text-base md:text-lg"></i></div>
+            <span class="text-lg md:text-2xl font-display font-extrabold tracking-tight text-[#111111] dark:text-white">STEEL<span class="text-[#B8734A]">&amp;EMBER</span></span>
+          </div>
+          <p class="mb-5 text-[#2E2E2E] dark:text-[#E0E0E0] text-sm">Precision forged knives & artisan sharpening. Since 1987.</p>
+          <div class="flex justify-center md:justify-start gap-3">
+            <a href="#" class="social-icon-school"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon-school"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon-school"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="text-center md:text-start">
+          <h4 class="text-[#111111] dark:text-[#B8734A] font-bold text-lg mb-5 uppercase tracking-wider">Explore</h4>
+          <ul class="space-y-2">
+            <li><a href="products.html" class="hover:text-[#B8734A] transition block text-[#2E2E2E] dark:text-[#E0E0E0]">Products</a></li>
+            <li><a href="collections.html" class="hover:text-[#B8734A] transition block text-[#2E2E2E] dark:text-[#E0E0E0]">Collections</a></li>
+            <li><a href="sharpening.html" class="hover:text-[#B8734A] transition block text-[#2E2E2E] dark:text-[#E0E0E0]">Sharpening</a></li>
+            <li><a href="portal.html" id="footer-portal-link" class="hover:text-[#B8734A] transition block text-[#2E2E2E] dark:text-[#E0E0E0]">Customer Portal</a></li>
+          </ul>
+        </div>
+        <div class="text-center md:text-start">
+          <h4 class="text-[#111111] dark:text-[#B8734A] font-bold text-lg mb-5 uppercase tracking-wider">Community</h4>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="hover:text-[#B8734A] transition block text-[#2E2E2E] dark:text-[#E0E0E0]">About</a></li>
+            <li><a href="contact.html" class="hover:text-[#B8734A] transition block text-[#2E2E2E] dark:text-[#E0E0E0]">Contact</a></li>
+            <li><a href="#" class="hover:text-[#B8734A] transition block text-[#2E2E2E] dark:text-[#E0E0E0]">Careers</a></li>
+          </ul>
+        </div>
+        <div class="text-center md:text-start">
+          <h4 class="text-[#111111] dark:text-[#B8734A] font-bold text-lg mb-5 uppercase tracking-wider">Visit</h4>
+          <ul class="space-y-3">
+            <li class="flex justify-center md:justify-start gap-3 text-[#2E2E2E] dark:text-[#E0E0E0]"><i class="fas fa-map-marker-alt text-[#B8734A] mt-1"></i><span>42 Forge Street, Cutlery District</span></li>
+            <li class="flex justify-center md:justify-start gap-3 text-[#2E2E2E] dark:text-[#E0E0E0]"><i class="fas fa-phone text-[#B8734A]"></i><span>(555) 987-6543</span></li>
+            <li class="flex justify-center md:justify-start gap-3 text-[#2E2E2E] dark:text-[#E0E0E0]"><i class="fas fa-envelope text-[#B8734A]"></i><span>hello@steelandember.com</span></li>
+            <li class="flex justify-center md:justify-start gap-3 text-[#2E2E2E] dark:text-[#E0E0E0] text-sm"><i class="fas fa-clock text-[#B8734A]"></i><span>Mon–Sat 9am – 6pm</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-[#E8E2DA] dark:border-[#3A3A3A] text-center text-sm text-[#4A4A4A] dark:text-[#AAAAAA]">
+        <p>&copy; 2026 STEEL & EMBER &middot; Specialty Kitchen Knives & Cutlery. <i class="fas fa-heart text-[#B8734A] mx-1"></i> Forged with precision.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======== SCRIPTS (same as reference + product filter demo) ======== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Theme toggle
+      const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+      themeBtns.forEach(btn => {
+        btn?.addEventListener('click', () => {
+          document.documentElement.classList.toggle('dark');
+          localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+      });
+      if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+      // RTL
+      function setRTL(isRTL) {
+        const html = document.documentElement;
+        if (isRTL === 'rtl' || isRTL === true) { html.setAttribute('dir', 'rtl'); localStorage.setItem('dir', 'rtl'); } 
+        else { html.setAttribute('dir', 'ltr'); localStorage.setItem('dir', 'ltr'); }
+      }
+      const savedDir = localStorage.getItem('dir');
+      if (savedDir === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+      else document.documentElement.setAttribute('dir', 'ltr');
+      const rtlBtn = document.getElementById('rtl-toggle');
+      if (rtlBtn) {
+        rtlBtn.addEventListener('click', () => {
+          const currentDir = document.documentElement.getAttribute('dir');
+          setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+        });
+      }
+      const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+      if (mobileRtlBtn) {
+        mobileRtlBtn.addEventListener('click', () => {
+          const currentDir = document.documentElement.getAttribute('dir');
+          setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+          const mobileMenu = document.getElementById('mobile-menu');
+          const mobileToggle = document.getElementById('mobile-toggle');
+          if (mobileMenu && mobileMenu.classList.contains('open')) {
+            mobileMenu.classList.remove('open');
+            if (mobileToggle && mobileToggle.querySelector('i')) {
+              mobileToggle.querySelector('i').classList.remove('fa-times');
+              mobileToggle.querySelector('i').classList.add('fa-bars');
+            }
+          }
+        });
+      }
+      // Mobile menu
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileToggle && mobileMenu) {
+        mobileToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('open');
+          const icon = mobileToggle.querySelector('i');
+          if (mobileMenu.classList.contains('open')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+        mobileMenu.querySelectorAll('a:not(#mobile-rtl-toggle)').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            if (mobileToggle.querySelector('i')) {
+              mobileToggle.querySelector('i').classList.remove('fa-times');
+              mobileToggle.querySelector('i').classList.add('fa-bars');
+            }
+          });
+        });
+      }
+      // Session & Profile dropdown management (same as reference)
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      
+      const authButtons = document.getElementById('auth-buttons');
+      const userProfileMenu = document.getElementById('user-profile-menu');
+      const userInitials = document.getElementById('user-initials');
+      const userDisplayName = document.getElementById('user-display-name');
+      
+      const mobileAuthButtons = document.getElementById('mobile-auth-buttons');
+      const mobileUserInfo = document.getElementById('mobile-user-info');
+      const mobileUserInitials = document.getElementById('mobile-user-initials');
+      const mobileUserName = document.getElementById('mobile-user-name');
+      
+      const heroPortalBtn = document.getElementById('hero-portal-btn');
+      const footerPortalLink = document.getElementById('footer-portal-link');
+      if (currentUser) {
+        if (authButtons) authButtons.classList.add('hidden');
+        if (userProfileMenu) userProfileMenu.classList.remove('hidden');
+        
+        const name = currentUser.name || 'User';
+        const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+        if (userInitials) userInitials.innerText = initials;
+        if (userDisplayName) userDisplayName.innerText = name;
+        
+        if (mobileAuthButtons) mobileAuthButtons.classList.add('hidden');
+        if (mobileUserInfo) mobileUserInfo.classList.remove('hidden');
+        if (mobileUserInitials) mobileUserInitials.innerText = initials;
+        if (mobileUserName) mobileUserName.innerText = name;
+        
+        if (heroPortalBtn) {
+          heroPortalBtn.href = 'client.html';
+          heroPortalBtn.innerHTML = '<i class="fas fa-th-large"></i> My Account';
+        }
+        if (footerPortalLink) {
+          footerPortalLink.href = 'client.html';
+          footerPortalLink.innerText = 'My Account';
+        }
+      } else {
+        if (authButtons) authButtons.classList.remove('hidden');
+        if (userProfileMenu) userProfileMenu.classList.add('hidden');
+        if (mobileAuthButtons) mobileAuthButtons.classList.remove('hidden');
+        if (mobileUserInfo) mobileUserInfo.classList.add('hidden');
+      }
+      const userMenuBtn = document.getElementById('user-menu-btn');
+      const userDropdown = document.getElementById('user-dropdown');
+      if (userMenuBtn && userDropdown) {
+        userMenuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          userDropdown.classList.toggle('hidden');
+        });
+        document.addEventListener('click', () => {
+          userDropdown.classList.add('hidden');
+        });
+      }
+      const handleLogout = () => {
+        localStorage.removeItem('currentUser');
+        window.location.reload();
+      };
+      const logoutBtn = document.getElementById('logout-btn');
+      const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+      if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
+      if (mobileLogoutBtn) mobileLogoutBtn.addEventListener('click', handleLogout);
+
+      // ===== INTERACTIVE PRODUCT FILTER, SORT & VIEW SYSTEM =====
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const productGrid = document.getElementById('product-grid');
+      const productCards = Array.from(document.querySelectorAll('.product-card'));
+      const showingCountEl = document.getElementById('showing-count');
+      const totalCountEl = document.getElementById('total-count');
+      const noProductsMsg = document.getElementById('no-products-msg');
+      const resetFilterBtn = document.getElementById('reset-filter-btn');
+      const sortSelect = document.getElementById('sort-select');
+      const viewGridBtn = document.getElementById('view-grid-btn');
+      const viewListBtn = document.getElementById('view-list-btn');
+      const paginationContainer = document.getElementById('pagination-container');
+
+      let currentFilter = 'all';
+
+      function applyFilter() {
+        let visibleCount = 0;
+
+        productCards.forEach(card => {
+          const categories = (card.getAttribute('data-category') || '').toLowerCase().split(/\s+/);
+          const matches = (currentFilter === 'all') || categories.includes(currentFilter.toLowerCase());
+
+          if (matches) {
+            card.classList.remove('card-hidden');
+            card.classList.add('card-fade-in');
+            visibleCount++;
+          } else {
+            card.classList.add('card-hidden');
+            card.classList.remove('card-fade-in');
+          }
+        });
+
+        // Update counts dynamically
+        if (showingCountEl) showingCountEl.textContent = visibleCount;
+        if (totalCountEl) totalCountEl.textContent = productCards.length;
+
+        // Toggle empty state
+        if (noProductsMsg) {
+          if (visibleCount === 0) {
+            noProductsMsg.classList.remove('hidden');
+          } else {
+            noProductsMsg.classList.add('hidden');
+          }
+        }
+
+        // Handle pagination visibility based on result count
+        if (paginationContainer) {
+          if (visibleCount <= 8) {
+            paginationContainer.classList.add('hidden');
+          } else {
+            paginationContainer.classList.remove('hidden');
+          }
+        }
+      }
+
+      // Filter button click event listener
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.getAttribute('data-filter') || 'all';
+          applyFilter();
+        });
+      });
+
+      if (resetFilterBtn) {
+        resetFilterBtn.addEventListener('click', () => {
+          const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+          if (allBtn) allBtn.click();
+        });
+      }
+
+      // Dynamic sorting functionality
+      if (sortSelect && productGrid) {
+        sortSelect.addEventListener('change', () => {
+          const val = sortSelect.value;
+          const sortedCards = [...productCards].sort((a, b) => {
+            const priceA = parseFloat(a.getAttribute('data-price') || 0);
+            const priceB = parseFloat(b.getAttribute('data-price') || 0);
+            const reviewsA = parseInt(a.getAttribute('data-reviews') || 0);
+            const reviewsB = parseInt(b.getAttribute('data-reviews') || 0);
+            const orderA = parseInt(a.getAttribute('data-order') || 0);
+            const orderB = parseInt(b.getAttribute('data-order') || 0);
+
+            if (val === 'price-asc') return priceA - priceB;
+            if (val === 'price-desc') return priceB - priceA;
+            if (val === 'rating') return reviewsB - reviewsA;
+            if (val === 'newest') {
+              const isNewA = a.innerText.includes('New') ? 1 : 0;
+              const isNewB = b.innerText.includes('New') ? 1 : 0;
+              return isNewB - isNewA;
+            }
+            return orderA - orderB;
+          });
+
+          sortedCards.forEach(card => productGrid.appendChild(card));
+          if (noProductsMsg) productGrid.appendChild(noProductsMsg);
+          applyFilter();
+        });
+      }
+
+      // Grid / List Layout Switcher
+      if (viewGridBtn && viewListBtn && productGrid) {
+        viewGridBtn.addEventListener('click', () => {
+          productGrid.classList.remove('product-grid-list', 'grid-cols-1');
+          productGrid.classList.add('sm:grid-cols-2', 'lg:grid-cols-3', 'xl:grid-cols-4');
+          viewGridBtn.className = 'w-8 h-8 rounded-full bg-[#B8734A] text-white flex items-center justify-center text-xs transition';
+          viewListBtn.className = 'w-8 h-8 rounded-full text-[#4A4A4A] dark:text-[#AAAAAA] flex items-center justify-center text-xs hover:text-[#B8734A] transition';
+        });
+
+        viewListBtn.addEventListener('click', () => {
+          productGrid.classList.remove('sm:grid-cols-2', 'lg:grid-cols-3', 'xl:grid-cols-4');
+          productGrid.classList.add('product-grid-list', 'grid-cols-1');
+          viewListBtn.className = 'w-8 h-8 rounded-full bg-[#B8734A] text-white flex items-center justify-center text-xs transition';
+          viewGridBtn.className = 'w-8 h-8 rounded-full text-[#4A4A4A] dark:text-[#AAAAAA] flex items-center justify-center text-xs hover:text-[#B8734A] transition';
+        });
+      }
+
+      // Wishlist & Add to Cart interactive feedback
+      document.querySelectorAll('.product-card button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const heartIcon = btn.querySelector('.fa-heart');
+          if (heartIcon) {
+            heartIcon.classList.toggle('far');
+            heartIcon.classList.toggle('fas');
+            heartIcon.classList.toggle('text-[#B8734A]');
+            return;
+          }
+          const plusIcon = btn.querySelector('.fa-plus');
+          if (plusIcon) {
+            plusIcon.classList.remove('fa-plus');
+            plusIcon.classList.add('fa-check');
+            btn.classList.add('bg-[#B8734A]', 'text-white');
+            setTimeout(() => {
+              plusIcon.classList.remove('fa-check');
+              plusIcon.classList.add('fa-plus');
+              btn.classList.remove('bg-[#B8734A]');
+            }, 1200);
+          }
+        });
+      });
+
+      // Pagination clicks
+      const paginationBtns = document.querySelectorAll('.pagination-btn');
+      paginationBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.querySelector('i')) return;
+          paginationBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          window.scrollTo({ top: productGrid.offsetTop - 120, behavior: 'smooth' });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

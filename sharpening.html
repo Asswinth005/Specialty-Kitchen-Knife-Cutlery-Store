@@ -448,10 +448,36 @@
       transition: all 0.25s;
       font-weight: 500;
     }
+    .booking-input::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .booking-input::-webkit-calendar-picker-indicator:hover {
+      opacity: 1;
+    }
     .dark .booking-input {
       background: #1F1F1F;
       border-color: #3A3A3A;
       color: #F5F5F5;
+      color-scheme: dark;
+    }
+    .dark .booking-input::-webkit-calendar-picker-indicator {
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    .dark .booking-input::-webkit-calendar-picker-indicator:hover {
+      opacity: 1;
+    }
+    .dark input[type="date"] {
+      color-scheme: dark;
+    }
+    .dark input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    .dark input[type="date"]::-webkit-calendar-picker-indicator:hover {
+      opacity: 1;
     }
     .booking-input:focus {
       outline: none;

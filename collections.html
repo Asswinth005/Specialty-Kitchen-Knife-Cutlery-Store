@@ -609,146 +609,158 @@
           <h2 class="text-3xl md:text-4xl font-display font-extrabold text-[#111111] dark:text-white mt-2">Curated <span class="text-[#B8734A]">Narratives</span></h2>
         </div>
         <div class="flex flex-wrap gap-2">
-          <button class="collection-chip active text-[#111111] dark:text-white" style="background:#B8734A;border-color:#B8734A;color:white;">All Collections</button>
-          <button class="collection-chip text-[#111111] dark:text-white">Japanese</button>
-          <button class="collection-chip text-[#111111] dark:text-white">German</button>
-          <button class="collection-chip text-[#111111] dark:text-white">Limited</button>
-          <button class="collection-chip text-[#111111] dark:text-white">Beginner</button>
-          <button class="collection-chip text-[#111111] dark:text-white">Pro Chef</button>
+          <button class="collection-chip active text-[#111111] dark:text-white" data-filter="all" style="background:#B8734A;border-color:#B8734A;color:white;">All Collections</button>
+          <button class="collection-chip text-[#111111] dark:text-white" data-filter="japanese">Japanese</button>
+          <button class="collection-chip text-[#111111] dark:text-white" data-filter="german">German</button>
+          <button class="collection-chip text-[#111111] dark:text-white" data-filter="limited">Limited</button>
+          <button class="collection-chip text-[#111111] dark:text-white" data-filter="beginner">Beginner</button>
+          <button class="collection-chip text-[#111111] dark:text-white" data-filter="pro-chef">Pro Chef</button>
         </div>
       </div>
 
-      <!-- ============ COLLECTION 01 — BANNER ============ -->
-      <div id="ember" class="editorial-banner mb-8 bg-[#111111] relative min-h-[440px] md:min-h-[520px]">
-        <img src="assets/collection_ember.jpg" alt="The Ember Series" class="editorial-img absolute inset-0" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221600%22 height=%22800%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%231A1A1A%22/%3E%3Cstop offset=%221%22 stop-color=%22%232A1F1A%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%22url(%23g)%22 width=%221600%22 height=%22800%22/%3E%3Ctext x=%22800%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22200%22 fill=%22%23B8734A%22 opacity=%220.15%22 text-anchor=%22middle%22 dy=%22.35em%22%3E🔥%3C/text%3E%3C/svg%3E'">
-        <div class="editorial-overlay absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-transparent"></div>
-        <div class="relative z-10 h-full flex flex-col justify-center p-8 md:p-14 lg:p-20" style="min-height: 440px;">
-          <div class="max-w-2xl">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="bg-[#B8734A] text-white text-[10px] font-extrabold uppercase tracking-[0.25em] px-3 py-1.5 rounded-full">Collection 01</span>
-              <span class="text-white/60 text-xs font-bold tracking-widest uppercase">Limited Edition</span>
-            </div>
-            <h2 class="text-4xl md:text-6xl font-display font-extrabold text-white leading-[1.05] mb-5">
-              The Ember<br /><span class="text-[#B8734A]">Series</span>
-            </h2>
-            <p class="text-white/80 text-base md:text-lg leading-relaxed max-w-lg mb-8">
-              Forged in collaboration with master smiths across two continents. Damascus steel, stabilized hardwood, and edges that feel like they were made for your hand alone.
-            </p>
-            <div class="flex flex-wrap items-center gap-6">
-              <a href="products.html" class="editorial-cta inline-flex items-center gap-2 bg-white text-[#111111] px-7 py-3 rounded-full font-bold hover:bg-[#B8734A] hover:text-white transition shadow-lg">
-                Shop the collection <i class="fas fa-arrow-right"></i>
-              </a>
-              <div class="flex items-center gap-4 text-white">
-                <div>
-                  <div class="text-2xl font-extrabold">30</div>
-                  <div class="text-[10px] uppercase tracking-widest text-white/50 font-semibold">Pieces</div>
-                </div>
-                <div class="w-px h-8 bg-white/20"></div>
-                <div>
-                  <div class="text-2xl font-extrabold">2</div>
-                  <div class="text-[10px] uppercase tracking-widest text-white/50 font-semibold">Cities</div>
-                </div>
-                <div class="w-px h-8 bg-white/20"></div>
-                <div>
-                  <div class="text-2xl font-extrabold">62</div>
-                  <div class="text-[10px] uppercase tracking-widest text-white/50 font-semibold">HRC</div>
-                </div>
+      <!-- ============ COLLECTIONS GRID (Consistent 3-Column Layout) ============ -->
+      <div id="collections-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <!-- Collection 01 -->
+        <div id="ember" data-category="limited all" class="collection-card editorial-banner bg-[#111111] relative rounded-[32px] overflow-hidden min-h-[460px] md:min-h-[480px] flex flex-col justify-between p-7 sm:p-8 border border-white/10 shadow-lg group">
+          <img src="assets/collection_ember.jpg" alt="The Ember Series" class="editorial-img absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221600%22 height=%22800%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%231A1A1A%22/%3E%3Cstop offset=%221%22 stop-color=%22%232A1F1A%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%22url(%23g)%22 width=%221600%22 height=%22800%22/%3E%3Ctext x=%22800%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22200%22 fill=%22%23B8734A%22 opacity=%220.15%22 text-anchor=%22middle%22 dy=%22.35em%22%3E🔥%3C/text%3E%3C/svg%3E'">
+          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30 group-hover:opacity-85 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10 flex items-center justify-between gap-3 mb-6">
+            <span class="bg-[#B8734A] text-white text-[10px] font-extrabold uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full shadow-sm">Collection 01</span>
+            <span class="bg-white/15 backdrop-blur-md text-white text-[10px] font-extrabold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border border-white/20">Limited Edition</span>
+          </div>
+
+          <div class="relative z-10 mt-auto">
+            <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-white leading-tight mb-2.5">The Ember <span class="text-[#B8734A]">Series</span></h3>
+            <p class="text-white/80 text-sm leading-relaxed mb-6">Forged in collaboration with master smiths across two continents. Damascus steel, stabilized hardwood, and surgical balance.</p>
+            <div class="pt-4 border-t border-white/15 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-white/70 text-xs font-semibold tracking-wider uppercase">
+                <i class="fas fa-layer-group text-[#B8734A]"></i> <span>30 Pieces</span>
               </div>
+              <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white hover:text-[#B8734A] font-bold text-sm transition">
+                Shop Collection <i class="fas fa-arrow-right text-xs"></i>
+              </a>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ============ TWO COLLECTIONS SIDE BY SIDE ============ -->
-      <div class="grid md:grid-cols-2 gap-6 mb-8">
         <!-- Collection 02 -->
-        <div class="editorial-banner bg-[#111111] relative min-h-[420px]">
-          <img src="assets/p5.jpg" alt="Sakura" class="editorial-img absolute inset-0" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect fill=%22%23251E1B%22 width=%22800%22 height=%22800%22/%3E%3Ctext x=%22400%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22180%22 fill=%22%23B8734A%22 opacity=%220.2%22 text-anchor=%22middle%22 dy=%22.35em%22%3E🌸%3C/text%3E%3C/svg%3E'">
-          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-8 md:p-10" style="min-height: 420px;">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="bg-white/15 backdrop-blur text-white text-[10px] font-extrabold uppercase tracking-[0.25em] px-3 py-1.5 rounded-full border border-white/20">Collection 02</span>
-            </div>
-            <h3 class="text-3xl md:text-4xl font-display font-extrabold text-white leading-tight mb-3">Sakura <span class="text-[#B8734A]">Blossom</span></h3>
-            <p class="text-white/75 text-sm leading-relaxed max-w-md mb-5">
-              Traditional Japanese profiles — Santoku, Nakiri, Petty — with Blue Steel cores and hand-finished magnolia handles.
-            </p>
-            <div class="flex items-center justify-between">
-              <div class="flex gap-2">
-                <span class="text-[10px] uppercase tracking-widest text-white/50 font-semibold">12 pieces</span>
+        <div id="sakura" data-category="japanese all" class="collection-card editorial-banner bg-[#111111] relative rounded-[32px] overflow-hidden min-h-[460px] md:min-h-[480px] flex flex-col justify-between p-7 sm:p-8 border border-white/10 shadow-lg group">
+          <img src="assets/p5.jpg" alt="Sakura Blossom" class="editorial-img absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect fill=%22%23251E1B%22 width=%22800%22 height=%22800%22/%3E%3Ctext x=%22400%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22180%22 fill=%22%23B8734A%22 opacity=%220.2%22 text-anchor=%22middle%22 dy=%22.35em%22%3E🌸%3C/text%3E%3C/svg%3E'">
+          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30 group-hover:opacity-85 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10 flex items-center justify-between gap-3 mb-6">
+            <span class="bg-[#B8734A] text-white text-[10px] font-extrabold uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full shadow-sm">Collection 02</span>
+            <span class="bg-white/15 backdrop-blur-md text-white text-[10px] font-extrabold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border border-white/20">Japanese Craft</span>
+          </div>
+
+          <div class="relative z-10 mt-auto">
+            <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-white leading-tight mb-2.5">Sakura <span class="text-[#B8734A]">Blossom</span></h3>
+            <p class="text-white/80 text-sm leading-relaxed mb-6">Traditional Japanese profiles — Santoku, Nakiri, Petty — with Blue Steel cores and hand-finished magnolia wood handles.</p>
+            <div class="pt-4 border-t border-white/15 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-white/70 text-xs font-semibold tracking-wider uppercase">
+                <i class="fas fa-layer-group text-[#B8734A]"></i> <span>12 Pieces</span>
               </div>
-              <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white font-bold text-sm">
-                View <i class="fas fa-arrow-right"></i>
+              <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white hover:text-[#B8734A] font-bold text-sm transition">
+                Shop Collection <i class="fas fa-arrow-right text-xs"></i>
               </a>
             </div>
           </div>
         </div>
 
         <!-- Collection 03 -->
-        <div class="editorial-banner bg-[#111111] relative min-h-[420px]">
-          <img src="assets/p7.jpg" alt="Modern Steel" class="editorial-img absolute inset-0" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect fill=%22%231F1F1F%22 width=%22800%22 height=%22800%22/%3E%3Ctext x=%22400%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22180%22 fill=%22%23D9D9D9%22 opacity=%220.15%22 text-anchor=%22middle%22 dy=%22.35em%22%3E⚙️%3C/text%3E%3C/svg%3E'">
-          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-8 md:p-10" style="min-height: 420px;">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="bg-white/15 backdrop-blur text-white text-[10px] font-extrabold uppercase tracking-[0.25em] px-3 py-1.5 rounded-full border border-white/20">Collection 03</span>
-            </div>
-            <h3 class="text-3xl md:text-4xl font-display font-extrabold text-white leading-tight mb-3">Modern <span class="text-[#B8734A]">Steel</span></h3>
-            <p class="text-white/75 text-sm leading-relaxed max-w-md mb-5">
-              German-engineered profiles with X50CrMoV15 steel. Heavier, tougher, and built for those who like a knife with weight behind it.
-            </p>
-            <div class="flex items-center justify-between">
-              <div class="flex gap-2">
-                <span class="text-[10px] uppercase tracking-widest text-white/50 font-semibold">10 pieces</span>
+        <div id="modern-steel" data-category="german all" class="collection-card editorial-banner bg-[#111111] relative rounded-[32px] overflow-hidden min-h-[460px] md:min-h-[480px] flex flex-col justify-between p-7 sm:p-8 border border-white/10 shadow-lg group">
+          <img src="assets/p7.jpg" alt="Modern Steel" class="editorial-img absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect fill=%22%231F1F1F%22 width=%22800%22 height=%22800%22/%3E%3Ctext x=%22400%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22180%22 fill=%22%23D9D9D9%22 opacity=%220.15%22 text-anchor=%22middle%22 dy=%22.35em%22%3E⚙️%3C/text%3E%3C/svg%3E'">
+          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30 group-hover:opacity-85 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10 flex items-center justify-between gap-3 mb-6">
+            <span class="bg-[#B8734A] text-white text-[10px] font-extrabold uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full shadow-sm">Collection 03</span>
+            <span class="bg-white/15 backdrop-blur-md text-white text-[10px] font-extrabold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border border-white/20">German Steel</span>
+          </div>
+
+          <div class="relative z-10 mt-auto">
+            <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-white leading-tight mb-2.5">Modern <span class="text-[#B8734A]">Steel</span></h3>
+            <p class="text-white/80 text-sm leading-relaxed mb-6">German-engineered profiles with X50CrMoV15 steel. Tougher, heavier, and built for those who like a knife with weight behind it.</p>
+            <div class="pt-4 border-t border-white/15 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-white/70 text-xs font-semibold tracking-wider uppercase">
+                <i class="fas fa-layer-group text-[#B8734A]"></i> <span>10 Pieces</span>
               </div>
-              <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white font-bold text-sm">
-                View <i class="fas fa-arrow-right"></i>
+              <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white hover:text-[#B8734A] font-bold text-sm transition">
+                Shop Collection <i class="fas fa-arrow-right text-xs"></i>
               </a>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ============ THREE TILE STRIP ============ -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Collection 04 -->
-        <div class="editorial-banner bg-[#111111] relative min-h-[340px]">
-          <img src="assets/p8.jpg" alt="Essentials" class="editorial-img absolute inset-0" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect fill=%22%232A1F1A%22 width=%22800%22 height=%22800%22/%3E%3Ctext x=%22400%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22160%22 fill=%22%23B8734A%22 opacity=%220.2%22 text-anchor=%22middle%22 dy=%22.35em%22%3E🍳%3C/text%3E%3C/svg%3E'">
-          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-7" style="min-height: 340px;">
-            <span class="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#B8734A] mb-2">Collection 04</span>
-            <h3 class="text-2xl font-display font-extrabold text-white leading-tight mb-2">The Essentials</h3>
-            <p class="text-white/70 text-xs leading-relaxed mb-4 flex-1">Three knives every kitchen needs — chef's, paring, serrated. Bundled and priced to start your journey right.</p>
-            <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white font-bold text-xs mt-auto">
-              Shop the set <i class="fas fa-arrow-right"></i>
-            </a>
+        <div id="essentials" data-category="beginner all" class="collection-card editorial-banner bg-[#111111] relative rounded-[32px] overflow-hidden min-h-[460px] md:min-h-[480px] flex flex-col justify-between p-7 sm:p-8 border border-white/10 shadow-lg group">
+          <img src="assets/p8.jpg" alt="The Essentials" class="editorial-img absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect fill=%22%232A1F1A%22 width=%22800%22 height=%22800%22/%3E%3Ctext x=%22400%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22160%22 fill=%22%23B8734A%22 opacity=%220.2%22 text-anchor=%22middle%22 dy=%22.35em%22%3E🍳%3C/text%3E%3C/svg%3E'">
+          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30 group-hover:opacity-85 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10 flex items-center justify-between gap-3 mb-6">
+            <span class="bg-[#B8734A] text-white text-[10px] font-extrabold uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full shadow-sm">Collection 04</span>
+            <span class="bg-white/15 backdrop-blur-md text-white text-[10px] font-extrabold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border border-white/20">Beginner Set</span>
+          </div>
+
+          <div class="relative z-10 mt-auto">
+            <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-white leading-tight mb-2.5">The <span class="text-[#B8734A]">Essentials</span></h3>
+            <p class="text-white/80 text-sm leading-relaxed mb-6">Three knives every kitchen needs — chef's, paring, and serrated. Bundled, balanced, and priced to start your culinary journey.</p>
+            <div class="pt-4 border-t border-white/15 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-white/70 text-xs font-semibold tracking-wider uppercase">
+                <i class="fas fa-layer-group text-[#B8734A]"></i> <span>3 Pieces</span>
+              </div>
+              <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white hover:text-[#B8734A] font-bold text-sm transition">
+                Shop Collection <i class="fas fa-arrow-right text-xs"></i>
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- Collection 05 -->
-        <div class="editorial-banner bg-[#111111] relative min-h-[340px]">
-          <img src="assets/p13.jpg" alt="Pro Line" class="editorial-img absolute inset-0" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect fill=%22%231A1A1A%22 width=%22800%22 height=%22800%22/%3E%3Ctext x=%22400%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22160%22 fill=%22%23B8734A%22 opacity=%220.2%22 text-anchor=%22middle%22 dy=%22.35em%22%3E👨‍🍳%3C/text%3E%3C/svg%3E'">
-          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-7" style="min-height: 340px;">
-            <span class="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#B8734A] mb-2">Collection 05</span>
-            <h3 class="text-2xl font-display font-extrabold text-white leading-tight mb-2">Pro Line</h3>
-            <p class="text-white/70 text-xs leading-relaxed mb-4 flex-1">Tools for working chefs — thicker spines, reinforced heels, and edges that hold through a 12-hour service.</p>
-            <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white font-bold text-xs mt-auto">
-              Shop Pro Line <i class="fas fa-arrow-right"></i>
-            </a>
+        <div id="pro-line" data-category="pro-chef all" class="collection-card editorial-banner bg-[#111111] relative rounded-[32px] overflow-hidden min-h-[460px] md:min-h-[480px] flex flex-col justify-between p-7 sm:p-8 border border-white/10 shadow-lg group">
+          <img src="assets/p13.jpg" alt="Pro Line" class="editorial-img absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect fill=%22%231A1A1A%22 width=%22800%22 height=%22800%22/%3E%3Ctext x=%22400%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22160%22 fill=%22%23B8734A%22 opacity=%220.2%22 text-anchor=%22middle%22 dy=%22.35em%22%3E👨‍🍳%3C/text%3E%3C/svg%3E'">
+          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30 group-hover:opacity-85 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10 flex items-center justify-between gap-3 mb-6">
+            <span class="bg-[#B8734A] text-white text-[10px] font-extrabold uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full shadow-sm">Collection 05</span>
+            <span class="bg-white/15 backdrop-blur-md text-white text-[10px] font-extrabold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border border-white/20">Pro Chef</span>
+          </div>
+
+          <div class="relative z-10 mt-auto">
+            <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-white leading-tight mb-2.5">Pro <span class="text-[#B8734A]">Line</span></h3>
+            <p class="text-white/80 text-sm leading-relaxed mb-6">High-performance tools for working chefs — thicker spines, reinforced heels, and edges that hold through grueling 12-hour shifts.</p>
+            <div class="pt-4 border-t border-white/15 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-white/70 text-xs font-semibold tracking-wider uppercase">
+                <i class="fas fa-layer-group text-[#B8734A]"></i> <span>6 Pieces</span>
+              </div>
+              <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white hover:text-[#B8734A] font-bold text-sm transition">
+                Shop Collection <i class="fas fa-arrow-right text-xs"></i>
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- Collection 06 -->
-        <div class="editorial-banner bg-[#111111] relative min-h-[340px] sm:col-span-2 lg:col-span-1">
-          <img src="assets/p10.jpg" alt="Gift Sets" class="editorial-img absolute inset-0" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect fill=%22%23251E1B%22 width=%22800%22 height=%22800%22/%3E%3Ctext x=%22400%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22160%22 fill=%22%23B8734A%22 opacity=%220.2%22 text-anchor=%22middle%22 dy=%22.35em%22%3E🎁%3C/text%3E%3C/svg%3E'">
-          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-7" style="min-height: 340px;">
-            <span class="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#B8734A] mb-2">Collection 06</span>
-            <h3 class="text-2xl font-display font-extrabold text-white leading-tight mb-2">Gift Sets</h3>
-            <p class="text-white/70 text-xs leading-relaxed mb-4 flex-1">Beautifully packaged knives and accessories. Ready to give, with a handwritten note and certificate.</p>
-            <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white font-bold text-xs mt-auto">
-              Shop Gifts <i class="fas fa-arrow-right"></i>
-            </a>
+        <div id="gift-sets" data-category="limited beginner all" class="collection-card editorial-banner bg-[#111111] relative rounded-[32px] overflow-hidden min-h-[460px] md:min-h-[480px] flex flex-col justify-between p-7 sm:p-8 border border-white/10 shadow-lg group">
+          <img src="assets/p10.jpg" alt="Gift Sets" class="editorial-img absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect fill=%22%23251E1B%22 width=%22800%22 height=%22800%22/%3E%3Ctext x=%22400%22 y=%22400%22 font-family=%22sans-serif%22 font-size=%22160%22 fill=%22%23B8734A%22 opacity=%220.2%22 text-anchor=%22middle%22 dy=%22.35em%22%3E🎁%3C/text%3E%3C/svg%3E'">
+          <div class="editorial-overlay absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30 group-hover:opacity-85 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10 flex items-center justify-between gap-3 mb-6">
+            <span class="bg-[#B8734A] text-white text-[10px] font-extrabold uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-full shadow-sm">Collection 06</span>
+            <span class="bg-white/15 backdrop-blur-md text-white text-[10px] font-extrabold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full border border-white/20">Gift Sets</span>
+          </div>
+
+          <div class="relative z-10 mt-auto">
+            <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-white leading-tight mb-2.5">Curated <span class="text-[#B8734A]">Gift Sets</span></h3>
+            <p class="text-white/80 text-sm leading-relaxed mb-6">Beautifully packaged artisan knives and leather sheaths. Ready to give, complete with a custom handwritten note and certificate.</p>
+            <div class="pt-4 border-t border-white/15 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-white/70 text-xs font-semibold tracking-wider uppercase">
+                <i class="fas fa-layer-group text-[#B8734A]"></i> <span>4 Sets</span>
+              </div>
+              <a href="products.html" class="editorial-cta inline-flex items-center gap-2 text-white hover:text-[#B8734A] font-bold text-sm transition">
+                Shop Collection <i class="fas fa-arrow-right text-xs"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1099,8 +1111,9 @@
       if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
       if (mobileLogoutBtn) mobileLogoutBtn.addEventListener('click', handleLogout);
 
-      // ===== Collection chip demo (visual toggle only) =====
+      // ===== Collection chip filter =====
       const chips = document.querySelectorAll('.collection-chip');
+      const collectionCards = document.querySelectorAll('#collections-grid .collection-card');
       chips.forEach(chip => {
         chip.addEventListener('click', () => {
           chips.forEach(c => {
@@ -1113,6 +1126,18 @@
           chip.style.background = '#B8734A';
           chip.style.borderColor = '#B8734A';
           chip.style.color = 'white';
+
+          const filter = chip.getAttribute('data-filter') || 'all';
+          collectionCards.forEach(card => {
+            const categories = card.getAttribute('data-category') || '';
+            if (filter === 'all' || categories.split(' ').includes(filter)) {
+              card.classList.remove('hidden');
+              card.style.display = 'flex';
+            } else {
+              card.classList.add('hidden');
+              card.style.display = 'none';
+            }
+          });
         });
       });
     });
